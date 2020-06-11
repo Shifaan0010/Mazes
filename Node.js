@@ -89,7 +89,7 @@ class AStarNode extends Node
                         noStroke()
                         fill(150, 150, 150)
                         circle((spot.x + 0.5) * maze.space, (spot.y + 0.5) * maze.space, maze.space * 0.8)
-                        await sleep(animate)
+                        await sleep(animate / 10)
                     }
 
                     previousSpot = spot
@@ -111,7 +111,7 @@ class AStarNode extends Node
                     }
 
                     if (animate != 0) {
-                        await sleep(animate)
+                        await sleep(animate / 10)
                     }
 
                     previousSpot = spot
