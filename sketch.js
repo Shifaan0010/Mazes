@@ -142,6 +142,7 @@ async function setup()
 
         let endNode = await algorithm(maze, animateSpeed())
         await Pathfinder.trace(maze, endNode, animateSpeed())
+
         running = false
         maze.draw()
     }
