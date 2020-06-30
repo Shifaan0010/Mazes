@@ -13,7 +13,7 @@ class Pathfinder
         return Pathfinder.astar(maze, (position, end) => 0, AStarNode.weightedMaze, animate)
     }
     static async greedy(maze, animate) {
-        return Pathfinder.astar(maze, (position, end) => 100 * Position.manhattenDistance(position, end), AStarNode.weightedMaze, animate)
+        return Pathfinder.astar(maze, (position, end) => 100 * Position.manhattenDistance(position, end), AStarNode.unweightedMaze, animate)
     }
     static async astar(maze, heuristic, graphGenerator, animate)
     {
