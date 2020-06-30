@@ -12,6 +12,9 @@ class Pathfinder
     static async dijkstra(maze, animate) {
         return Pathfinder.astar(maze, (position, end) => 0, AStarNode.weightedMaze, animate)
     }
+    static async greedy(maze, animate) {
+        return Pathfinder.astar(maze, (position, end) => 100 * Position.manhattenDistance(position, end), AStarNode.weightedMaze, animate)
+    }
     static async astar(maze, heuristic, graphGenerator, animate)
     {
         let mazeNodes = await graphGenerator(maze, heuristic, animate)

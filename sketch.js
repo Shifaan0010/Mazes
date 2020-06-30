@@ -90,7 +90,7 @@ async function setup()
 
     let pathfinderP = createP('Pathfinding Algorithm ')
     pathfinderP.parent('text-container')
-    let pathfinder = selector(['Breadth First', 'Dijkstra', 'A Star', 'A Star (Weighted)', 'Wall Follower'], 2)
+    let pathfinder = selector(['Breadth First', 'Dijkstra', 'A Star', 'A Star (Weighted)', 'Wall Follower', 'Greedy'], 2)
     pathfinder.parent(pathfinderP)
 
     let maze
@@ -138,6 +138,8 @@ async function setup()
             algorithm = Pathfinder.aStar
         } else if (pathfinder.value() == 'Wall Follower') {
             algorithm = Pathfinder.wallFollower
+        } else if (pathfinder.value() == 'Greedy') {
+            algorithm = Pathfinder.greedy
         } else {return}
 
         let endNode = await algorithm(maze, animateSpeed())
