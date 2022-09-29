@@ -1,10 +1,10 @@
 class Pathfinder
 {
     static async aStar(maze, animate) {
-        return Pathfinder.astar(maze, Position.manhattenDistance, AStarNode.unweightedMaze, animate)
+        return Pathfinder.astar(maze, Position.distance, AStarNode.unweightedMaze, animate)
     }
     static async aStarWeighted(maze, animate) {
-        return Pathfinder.astar(maze, Position.manhattenDistance, AStarNode.weightedMaze, animate)
+        return Pathfinder.astar(maze, Position.distance, AStarNode.weightedMaze, animate)
     }
     static async breadthFirst(maze, animate) {
         return Pathfinder.astar(maze, (position, end) => 0, AStarNode.unweightedMaze, animate)
@@ -13,7 +13,7 @@ class Pathfinder
         return Pathfinder.astar(maze, (position, end) => 0, AStarNode.weightedMaze, animate)
     }
     static async greedy(maze, animate) {
-        return Pathfinder.astar(maze, (position, end) => 100 * Position.manhattenDistance(position, end), AStarNode.unweightedMaze, animate)
+        return Pathfinder.astar(maze, (position, end) => 100 * Position.distance(position, end), AStarNode.unweightedMaze, animate)
     }
     static async astar(maze, heuristic, graphGenerator, animate)
     {
@@ -46,7 +46,7 @@ class Pathfinder
 
             node.neighbors.forEach(
                 (neighbor) => {
-                    let newCost = node.cost + Position.manhattenDistance(node, neighbor)
+                    let newCost = node.cost + heuristic(node, neighbor)
                     if (neighbor.cost == Infinity || newCost < neighbor.cost) {
                         if (neighbor.cost == Infinity) {
                             priorityQ.push(neighbor)

@@ -15,6 +15,9 @@ class Position
     copy() {
         return new Position(this.x, this.y)
     }
+    static distance(a, b) {
+        return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
+    }
     static manhattenDistance(position, other) {
         return abs(position.x - other.x) + abs(position.y - other.y)
     }

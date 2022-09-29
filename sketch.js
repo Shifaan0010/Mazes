@@ -13,7 +13,7 @@ async function setup()
     canvas.id('canvas')
 
     let sizeP = createP('Size ').parent('text-container')
-    let size = createSlider(10, 50, 20)
+    let size = createSlider(10, 50, 30)
     size.parent(sizeP)
 
     let running = false
@@ -69,7 +69,7 @@ async function setup()
     seed.elt.placeholder = 'Seed'
     seed.parent('text-container')
 
-    let animate = createCheckbox('Animate', false)
+    let animate = createCheckbox('Animate', true)
     animate.parent('text-container')
 
     let animateSlider = createSlider(1, 50, 10)
@@ -90,7 +90,8 @@ async function setup()
 
     let pathfinderP = createP('Pathfinding Algorithm ')
     pathfinderP.parent('text-container')
-    let pathfinder = selector(['Breadth First', 'Dijkstra', 'A Star', 'A Star (Weighted)', 'Wall Follower', 'Greedy'], 2)
+    let pathfinder = selector(['Breadth First', 'A Star', 'Wall Follower', 'Greedy'], 1)
+    // , 'Dijkstra', 'A Star (Weighted)'
     pathfinder.parent(pathfinderP)
 
     let maze
