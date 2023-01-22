@@ -3,6 +3,9 @@ class Pathfinder
     static async aStar(maze, animate) {
         return Pathfinder.astar(maze, Position.distance, AStarNode.unweightedMaze, animate)
     }
+    static async aStarManhatten(maze, animate) {
+        return Pathfinder.astar(maze, Position.manhattenDistance, AStarNode.unweightedMaze, animate)
+    }
     static async aStarWeighted(maze, animate) {
         return Pathfinder.astar(maze, Position.distance, AStarNode.weightedMaze, animate)
     }
